@@ -27,7 +27,7 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
 export const metadata: Metadata = {
   title: "Pakistan Independence Day Creator 🇵🇰",
   description: "Create beautiful social media graphics for Pakistan Independence Day - August 14th",
-  generator: "v0.app",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

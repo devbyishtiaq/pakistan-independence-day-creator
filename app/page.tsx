@@ -1,5 +1,10 @@
-import { PakistanCreator } from "@/components/pakistan-creator"
+import { MainLayout } from "@/layouts/main-layout"
+import { HomeComponent } from "@/components/home-component"
 
 export default function Page() {
-  return <PakistanCreator />
+  return (
+    <MainLayout>
+      <HomeComponent />
+    </MainLayout>
+  )
 }
