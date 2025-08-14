@@ -50,9 +50,9 @@ export function PakistanCreator() {
   if (!mounted) return null
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-br from-green-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Header */}
-      <header className="flex-shrink-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-green-200 dark:border-gray-700">
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-green-200 dark:border-gray-700">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Left - App Title */}
@@ -88,12 +88,12 @@ export function PakistanCreator() {
         </div>
       </header>
 
-      {/* Main Content - Flex grow to fill remaining space */}
-      <main className="flex-1 container mx-auto px-4 py-6 overflow-hidden">
-        <div className="grid lg:grid-cols-3 gap-6 h-full">
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           {/* Canvas Area */}
-          <div className="lg:col-span-2 h-full">
-            <Card className="h-full p-6 bg-white/50 dark:bg-gray-800/50 border-green-200 dark:border-gray-600">
+          <div className="lg:col-span-2">
+            <Card className="p-6 bg-white/50 dark:bg-gray-800/50 border-green-200 dark:border-gray-600">
               <CanvasFrame
                 ref={canvasRef}
                 preset={canvasState.canvasPreset}
@@ -121,85 +121,85 @@ export function PakistanCreator() {
           </div>
 
           {/* Controls Sidebar */}
-          <div className="h-full overflow-y-auto">
-            <div className="space-y-4 pb-4">
-              <Accordion type="multiple" defaultValue={["text", "graphics", "export"]} className="space-y-2">
-                <AccordionItem value="text">
-                  <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
-                    Text Controls
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <TextControls
-                      selectedElement={textState.selectedElement}
-                      onUpdateElement={textState.handleUpdateTextElement}
-                      onAddElement={textState.handleAddTextElement}
-                      onDeleteElement={textState.handleDeleteTextElement}
-                      language={textState.language}
-                      onLanguageChange={textState.setLanguage}
-                    />
-                  </AccordionContent>
-                </AccordionItem>
+          <div className="space-y-4">
+            <Accordion type="multiple" defaultValue={["text", "graphics", "export"]} className="space-y-2">
+              <AccordionItem value="text">
+                <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
+                  Text Controls
+                </AccordionTrigger>
+                <AccordionContent>
+                  <TextControls
+                    selectedElement={textState.selectedElement}
+                    onUpdateElement={textState.handleUpdateTextElement}
+                    onAddElement={textState.handleAddTextElement}
+                    onDeleteElement={textState.handleDeleteTextElement}
+                    language={textState.language}
+                    onLanguageChange={textState.setLanguage}
+                  />
+                </AccordionContent>
+              </AccordionItem>
 
-                <AccordionItem value="graphics">
-                  <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
-                    Graphics & Elements
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <GraphicsControls
-                      crescentStar={graphicsState.crescentStar}
-                      onUpdateCrescentStar={graphicsState.setCrescentStar}
-                      onToggleCrescentStar={graphicsState.setCrescentStarEnabled}
-                      crescentStarEnabled={graphicsState.crescentStarEnabled}
-                      skyline={graphicsState.skyline}
-                      onUpdateSkyline={graphicsState.setSkyline}
-                      onToggleSkyline={graphicsState.setSkylineEnabled}
-                      skylineEnabled={graphicsState.skylineEnabled}
-                      confettiEnabled={graphicsState.confettiEnabled}
-                      onToggleConfetti={graphicsState.setConfettiEnabled}
-                      confettiDensity={graphicsState.confettiDensity}
-                      onUpdateConfettiDensity={graphicsState.setConfettiDensity}
-                      timeline={graphicsState.timeline}
-                      onUpdateTimeline={graphicsState.setTimeline}
-                      onToggleTimeline={graphicsState.setTimelineEnabled}
-                      timelineEnabled={graphicsState.timelineEnabled}
-                      qrCode={graphicsState.qrCode}
-                      onUpdateQRCode={graphicsState.setQrCode}
-                      onToggleQRCode={graphicsState.setQrCodeEnabled}
-                      qrCodeEnabled={graphicsState.qrCodeEnabled}
-                    />
-                  </AccordionContent>
-                </AccordionItem>
+              <AccordionItem value="graphics">
+                <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
+                  Graphics & Elements
+                </AccordionTrigger>
+                <AccordionContent>
+                  <GraphicsControls
+                    crescentStar={graphicsState.crescentStar}
+                    onUpdateCrescentStar={graphicsState.setCrescentStar}
+                    onToggleCrescentStar={graphicsState.setCrescentStarEnabled}
+                    crescentStarEnabled={graphicsState.crescentStarEnabled}
+                    skyline={graphicsState.skyline}
+                    onUpdateSkyline={graphicsState.setSkyline}
+                    onToggleSkyline={graphicsState.setSkylineEnabled}
+                    skylineEnabled={graphicsState.skylineEnabled}
+                    confettiEnabled={graphicsState.confettiEnabled}
+                    onToggleConfetti={graphicsState.setConfettiEnabled}
+                    confettiDensity={graphicsState.confettiDensity}
+                    onUpdateConfettiDensity={graphicsState.setConfettiDensity}
+                    timeline={graphicsState.timeline}
+                    onUpdateTimeline={graphicsState.setTimeline}
+                    onToggleTimeline={graphicsState.setTimelineEnabled}
+                    timelineEnabled={graphicsState.timelineEnabled}
+                    qrCode={graphicsState.qrCode}
+                    onUpdateQRCode={graphicsState.setQrCode}
+                    onToggleQRCode={graphicsState.setQrCodeEnabled}
+                    qrCodeEnabled={graphicsState.qrCodeEnabled}
+                  />
+                </AccordionContent>
+              </AccordionItem>
 
-                {/* Export Controls */}
-                <AccordionItem value="export">
-                  <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
-                    Export & Share
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    <ExportControls canvasPreset={canvasState.canvasPreset} canvasRef={canvasRef} />
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+              {/* Export Controls */}
+              <AccordionItem value="export">
+                <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
+                  Export & Share
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ExportControls canvasPreset={canvasState.canvasPreset} canvasRef={canvasRef} />
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
 
-              {/* Quick Guide */}
-              <Card className="p-4 bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700">
-                <h4 className="font-poppins font-medium text-sm mb-2 text-pakistan-green dark:text-green-400">
-                  Quick Guide
-                </h4>
-                <ol className="text-xs space-y-1 text-muted-foreground">
-                  <li>1. Pick a preset size</li>
-                  <li>2. Add and customize text</li>
-                  <li>3. Toggle graphics elements</li>
-                  <li>4. Export PNG (Ctrl+S)</li>
-                </ol>
-              </Card>
-            </div>
+            {/* Quick Guide */}
+            <Card className="p-4 bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700">
+              <h4 className="font-poppins font-medium text-sm mb-2 text-pakistan-green dark:text-green-400">
+                Quick Guide
+              </h4>
+              <ol className="text-xs space-y-1 text-muted-foreground">
+                <li>1. Pick a preset size</li>
+                <li>2. Add and customize text</li>
+                <li>3. Toggle graphics elements</li>
+                <li>4. Export PNG (Ctrl+S)</li>
+              </ol>
+            </Card>
           </div>
         </div>
       </main>
 
+      <div className="pb-20"></div>
+
       {/* Footer */}
-      <footer className="flex-shrink-0 border-t border-green-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm">
+      <footer className="fixed bottom-0 left-0 right-0 z-40 border-t border-green-200 dark:border-gray-700 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             {/* Hashtag Chips */}
