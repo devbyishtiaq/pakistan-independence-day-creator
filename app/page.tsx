@@ -12,6 +12,7 @@ import { CanvasFrame, type CanvasPreset, type BackgroundType } from "@/component
 import { TextControls, type Language } from "@/components/text-controls"
 import { GraphicsControls } from "@/components/graphics-controls"
 import { ExportControls } from "@/components/export-controls"
+import { WavingFlag } from "@/components/waving-flag"
 import type { TextElement } from "@/components/draggable-text"
 import type { CrescentStarElement } from "@/components/crescent-star"
 import type { SkylineElement } from "@/components/skyline-silhouette"
@@ -225,8 +226,8 @@ export default function PakistanIndependenceCreator() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Left - App Title */}
-            <div className="flex items-center gap-2">
-              <div className="text-2xl animate-bounce">🇵🇰</div>
+            <div className="flex items-center gap-3">
+              <WavingFlag />
               <h1 className="text-xl font-poppins font-bold text-pakistan-green dark:text-green-400">
                 Pakistan Independence Day Creator
               </h1>
@@ -258,7 +259,7 @@ export default function PakistanIndependenceCreator() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-6 pb-20">
+      <main className="container mx-auto px-4 py-6 pb-32">
         <div className="grid lg:grid-cols-3 gap-6 h-[calc(100vh-200px)]">
           {/* Canvas Area */}
           <div className="lg:col-span-2">
@@ -290,7 +291,7 @@ export default function PakistanIndependenceCreator() {
           </div>
 
           {/* Controls Sidebar */}
-          <div className="space-y-4 overflow-y-auto">
+          <div className="space-y-4 overflow-y-auto pb-32">
             <Accordion type="multiple" defaultValue={["text", "graphics", "export"]} className="space-y-2">
               <AccordionItem value="text">
                 <AccordionTrigger className="text-sm font-poppins font-semibold text-pakistan-green dark:text-green-400">
