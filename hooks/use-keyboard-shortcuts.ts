@@ -18,6 +18,13 @@ export function useKeyboardShortcuts({
 }: UseKeyboardShortcutsProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      const activeElement = document.activeElement
+      const isTyping =
+        activeElement &&
+        (activeElement.tagName === "INPUT" ||
+          activeElement.tagName === "TEXTAREA" ||
+          activeElement.contentEditable === "true")
+
       // Export shortcut (Ctrl/Cmd + S)
       if ((e.ctrlKey || e.metaKey) && e.key === "s") {
         e.preventDefault()
@@ -28,15 +35,14 @@ export function useKeyboardShortcuts({
         }
       }
 
-      // Delete selected element
-      if (e.key === "Delete" || e.key === "Backspace") {
+      if ((e.key === "Delete" || e.key === "Backspace") && !isTyping) {
         if (selectedTextId) {
+          e.preventDefault() // Prevent any default behavior
           handleDeleteTextElement(selectedTextId)
         }
       }
 
-      // Arrow key nudging
-      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key) && !isTyping) {
         e.preventDefault()
         const nudgeAmount = e.shiftKey ? 10 : 1
 
